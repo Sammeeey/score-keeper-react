@@ -11,31 +11,18 @@ const players = [
     {id: getUuid(), score: 0},
 ]
 
-function Players({amount}) {
-    const winningScore = 3
+function Players({amount, finalScore}) {
     const playerAmountArr = [...Array(amount).keys()]
-    const [scores, setScores] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0})))
+    console.log(playerAmountArr)
 
-    const incrementScore = (id) => {
-        setScores(previousScores => previousScores.map((score, i) => {
-            if (score.score === id){
-                previousScores[i].score += 1
-            }
-        }))
-    }
-
-    // const resetScores = () => {
-    //   setStartScore(previousScore => previousScore = 0)    
-    // }
+    const [players, setPlayers] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0})))
 
     return (
         <>
-        {scores.map((score, playerIndex) => (
-            <Player key={score.id} playerNum={playerIndex+1} score={score.score} updateScore={() => incrementScore(score.id)} />
-        ))}
-        <button type="button"
-        // onClick={resetScores}
-        >reset</button>
+        {players.map((player, i) => (
+            <Player key={player.id} finalScore={finalScore} playerNum={i+1} />
+            ))}
+        <Player />
         </>
     )
 }

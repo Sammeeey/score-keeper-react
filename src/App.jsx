@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <Players amount={3} />
+    <Players amount={4} finalScore={3} />
     </>
   )
 }

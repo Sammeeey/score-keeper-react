@@ -2,20 +2,20 @@
 
 import { useState } from "react"
 
+function Player({ finalScore, playerNum }) {
+    const [score, setScore] = useState(0)
 
-function Player({playerNum, winningScore, score, updateScore}) {
-    let isWinner = score >= winningScore
+    const incrementScore = () => {
+        setScore(previousScore => previousScore + 1)
+    }
 
-    // const updateScore = () => {
-    //     setScores(previousScore => previousScore + 1)
-    // }
-
+    const isWinner = score >= finalScore
 
     return (
         <div>
-        <span>{`Player${playerNum}:`} {score}</span>
-        <button type="button" onClick={updateScore}>+1</button>
-        {isWinner ? 'WINNER' : null}
+            <span>Player{playerNum}: {score}</span>
+            <button type="button" onClick={incrementScore}>+1</button>
+            {isWinner && <span>WINNER!</span>}
         </div>
     )
 }
