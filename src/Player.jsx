@@ -2,11 +2,16 @@
 
 import { useState } from "react"
 
-function Player({ finalScore, playerNum }) {
-    const [score, setScore] = useState(0)
+function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate }) {
 
     const incrementScore = () => {
-        setScore(previousScore => previousScore + 1)
+        onPlayerUpdate(previousPlayers => previousPlayers.map(player => {
+            if (player.id === playerId){
+                return ({...player, score: player.score +1})
+            } else {
+                return player
+            }
+        }))
     }
 
     const isWinner = score >= finalScore
