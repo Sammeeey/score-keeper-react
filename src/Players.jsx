@@ -16,12 +16,18 @@ function Players({amount, finalScore}) {
 
     const [players, setPlayers] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0})))
 
+    const resetScores = () => {
+        setPlayers(prevPlayers => prevPlayers.map(player => (
+            {...player, score: 0}
+        )))
+    }
+
     return (
         <>
         {players.map((player, i) => (
             <Player key={player.id}  score={player.score} finalScore={finalScore} playerNum={i+1} playerId={player.id} onPlayerUpdate={setPlayers} />
             ))}
-        <button type="button">reset</button>
+        <button type="button" onClick={resetScores}>reset</button>
         </>
     )
 }
