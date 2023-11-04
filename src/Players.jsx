@@ -14,7 +14,7 @@ const players = [
 function Players({amount, finalScore}) {
     const playerAmountArr = [...Array(amount).keys()]
 
-    const [players, setPlayers] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0})))
+    const [players, setPlayers] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0, isWinner: false})))
 
     const resetScores = () => {
         setPlayers(prevPlayers => prevPlayers.map(player => (
