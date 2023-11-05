@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate }) {
+function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate, gameOver }) {
 
     const incrementScore = () => {
         onPlayerUpdate(previousPlayers => previousPlayers.map(player => {
@@ -28,7 +28,7 @@ function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate }) {
     return (
         <div>
             <span>Player{playerNum}: {score}</span>
-            <button type="button" onClick={() => {incrementScore(); checkWinner()}} disabled={isWinner}>+1</button>
+            <button type="button" onClick={() => {incrementScore(); checkWinner()}} disabled={gameOver}>+1</button>
             {isWinner && <span>WINNER!</span>}
         </div>
     )
