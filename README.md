@@ -1,3 +1,20 @@
+# Score Keeper
+- React 18.2
+
+## Notes
+- [ ] learn apply: React change list element in place
+
+### score keeper Todos
+- [x] implement winner/winning score
+- [x] reset score
+- [x] stop game once someone is winner (= disable all buttons)
+
+### next projects
+- [ ] progressive web app -> playstore
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
