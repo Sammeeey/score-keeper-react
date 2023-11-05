@@ -5,13 +5,8 @@ import Player from "./Player"
 
 const getUuid = () => crypto.randomUUID()
 
-const players = [
-    {id: getUuid(), score: 0},
-    {id: getUuid(), score: 0},
-    {id: getUuid(), score: 0},
-]
 
-function Players({amount, finalScore}) {
+function Players({amount=4, finalScore=3}) {
     const playerAmountArr = [...Array(amount).keys()]
 
     const [players, setPlayers] = useState(playerAmountArr.map(player => ({id: getUuid(), score: 0, isWinner: false})))
