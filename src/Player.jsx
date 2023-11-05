@@ -14,8 +14,6 @@ function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate, gameOv
         }))
     }
 
-    const isWinner = score >= finalScore
-
     const checkWinner = () => {
         onPlayerUpdate(previousPlayers => previousPlayers.map(player => {
             if (player.id === playerId && player.score >= finalScore){
@@ -29,7 +27,7 @@ function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate, gameOv
         <div>
             <span>Player{playerNum}: {score}</span>
             <button type="button" onClick={() => {incrementScore(); checkWinner()}} disabled={gameOver}>+1</button>
-            {isWinner && <span>WINNER!</span>}
+            {score >= finalScore && <span>WINNER!</span>}
         </div>
     )
 }
