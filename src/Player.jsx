@@ -18,7 +18,7 @@ function Player({ score, finalScore, playerNum, playerId, onPlayerUpdate }) {
 
     const checkWinner = () => {
         onPlayerUpdate(previousPlayers => previousPlayers.map(player => {
-            if (player.id === playerId){
+            if (player.id === playerId && player.score >= finalScore){
                 return ({...player, isWinner: true})
             } else {
                 return player
