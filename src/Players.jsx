@@ -24,7 +24,7 @@ function Players({amount=4, finalScore=3}) {
         {players.map((player, i) => (
             <Player key={player.id}  score={player.score} finalScore={finalScore} playerNum={i+1} playerId={player.id} onPlayerUpdate={setPlayers} gameOver={gameOver} />
             ))}
-        <button type="button" onClick={resetScores} disabled={gameOver}>reset</button>
+        <button type="button" onClick={resetScores}>reset</button>
         </>
     )
 }
